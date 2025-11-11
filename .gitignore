@@ -1,0 +1,32 @@
+# Node modules
+/server/node_modules
+/client/node_modules
+
+# Build folders
+/server/dist
+/client/.next
+/client/out
+/client/build
+
+# Environment files
+/server/.env
+/server/.env.local
+/server/.env.production
+/server/.env.development
+
+/client/.env
+/client/.env.local
+/client/.env.production
+/client/.env.development
+
+# Logs
+/server/logs
+/server/npm-debug.log*
+/client/npm-debug.log*
+
+# System files
+.DS_Store
+Thumbs.db
+
+# VS Code settings
+.vscode/
