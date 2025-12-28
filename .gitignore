@@ -28,6 +28,4 @@
 .DS_Store
 Thumbs.db
 
-# Ignore all .gitkeep files
-**/.gitkeep
 
