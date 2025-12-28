@@ -28,5 +28,6 @@
 .DS_Store
 Thumbs.db
 
-# VS Code settings
-.vscode/
+# Ignore all .gitkeep files
+**/.gitkeep
+
