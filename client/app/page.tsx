@@ -1,5 +1,31 @@
 // File: boilerplate/client/app/page.tsx
+"use client";
+
 import Image from "next/image";
+import api from "@/lib/axios";
+import { useQuery } from "@tanstack/react-query";
+
+const HelloMessage = () => {
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["hello"],
+    queryFn: async () => {
+      const response = await api.get("/");
+      return response.data;
+    },
+  });
+
+  if (isLoading)
+    return <p className="text-sm text-zinc-500">Loading API message...</p>;
+  if (error) return <p className="text-sm text-red-500">Error fetching API</p>;
+
+  return (
+    <div className="rounded-lg bg-zinc-100 p-4 dark:bg-zinc-900">
+      <p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
+        API Response: <span className="font-bold text-blue-600">{data}</span>
+      </p>
+    </div>
+  );
+};
 
 export default function Home() {
   return (
@@ -17,6 +43,9 @@ export default function Home() {
           <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
             To get started, edit the page.tsx file.
           </h1>
+
+          <HelloMessage />
+
           <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
             Looking for a starting point or more instructions? Head over to{" "}
             <a
